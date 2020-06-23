@@ -4,7 +4,7 @@ This private repository contains projects, hands-on trainings and coding challen
 
 ## Description
 
-The clarusway-workshop repository contains projects, hands-on trainings and coding challenges in the following main areas.
+The clarusway-workshop repository contains projects, hands-on trainings, coding challenges, etc. in the following main areas.
 
 - [AWS Workshop](./aws/)
 
