@@ -132,5 +132,5 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Open the static file `mytext.txt` context from the web browser
 
-- Connect the route handling web application from the terminal with `curl` command.
+- Connect the route handling and templating web application from the terminal with `curl` command.
 
