@@ -34,7 +34,7 @@ At the end of the hands-on training, students will be able to;
 
 HTTP (Hypertext Transfer Protocol) is a request-response protocol. A client on one side (web browser) asks or requests something from a server and the server on the other side sends a response to that client. When we open our browser and write down the URL (Uniform Resource Locator), we are requesting a resource from a server and the URL is the address of that resource. The structure of typical URL is as the following.
 
-![URL anatomy](./flask/url-structure.png)
+![URL anatomy](./url-structure.png)
 
 The server responds to that request with an HTTP response message. Within the response, a status code element is a 3-digit integer defines the category of response as shown below.
 
