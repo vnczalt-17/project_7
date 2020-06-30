@@ -22,15 +22,15 @@ At the end of the hands-on training, students will be able to;
 
 ## Outline
 
-- Getting to know routing and HTTP URLs.
+- Part 1 - Getting to know routing and HTTP URLs.
 
-- Install Python and Flask framework Amazon Linux 2 EC2 Instance 
+- Part 2 - Install Python and Flask framework Amazon Linux 2 EC2 Instance 
 
-- Write a Web Application with Sample Routings and Templating on GitHub Repo
+- Part 3 - Write a Web Application with Sample Routings and Templating on GitHub Repo
 
-- Run the Web App on EC2 Instance
+- Part 4 - Run the Web App on EC2 Instance
 
-## Getting to know routing and HTTP URLs.
+## Part 1 - Getting to know routing and HTTP URLs.
 
 HTTP (Hypertext Transfer Protocol) is a request-response protocol. A client on one side (web browser) asks or requests something from a server and the server on the other side sends a response to that client. When we open our browser and write down the URL (Uniform Resource Locator), we are requesting a resource from a server and the URL is the address of that resource. The structure of typical URL is as the following.
 
@@ -48,7 +48,7 @@ The server responds to that request with an HTTP response message. Within the re
 
 - 5xx -> Server Error
 
-## Install Python and Flask framework Amazon Linux 2 EC2 Instance 
+## Part 2 - Install Python and Flask framework Amazon Linux 2 EC2 Instance 
 
 - Launch an Amazon EC2 instance using the Amazon Linux 2 AMI with security group allowing SSH (Port 22) and HTTP (Port 80) connections.
 
@@ -64,7 +64,7 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Check the versions of Flask framework packages (flask, click, itsdangerous, jinja2, markupSafe, werkzeug)
 
-## Write a Web Application with Sample Routings and Templating on GitHub Repo
+## Part 3 - Write a Web Application with Sample Routings and Templating on GitHub Repo
 
 - Create folder named `flask-02-handling-routes-on-ec2-linux2` within `clarusway-python-workshop` repo
 
@@ -122,7 +122,7 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Push `app.py`, `greet.html`, `list10.html`, `evens.html`, and `mytext.txt` to remote repo `clarusway-python-workshop` on GitHub.
 
-## Run the Hello World App on EC2 Instance
+## Part 4 - Run the Hello World App on EC2 Instance
 
 - Download the web application file from GitHub repo.
 
