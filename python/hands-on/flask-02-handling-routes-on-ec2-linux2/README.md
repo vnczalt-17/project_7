@@ -66,11 +66,11 @@ The server responds to that request with an HTTP response message. Within the re
 
 ## Write a Web Application with Sample Routings and Templating on GitHub Repo
 
-- Create folder named `hands-on-flask-02-handling-routes-on-ec2-linux2` within `clarusway-python-workshop` repo
+- Create folder named `flask-02-handling-routes-on-ec2-linux2` within `clarusway-python-workshop` repo
 
 - Create python file named `app.py`
 
-- Write an application with routing samples and save the complete code under `hands-on-flask-02-handling-routes-on-ec2-linux2` folder.
+- Write an application with routing and templating samples and save the complete code under `hands-on/flask-02-handling-routes-on-ec2-linux2` folder.
 
 ```python
 #Import Flask modules
@@ -116,11 +116,11 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Write a template html file named `evens.html` which shows a list of even numbers from 1 to 10 under `templates` folder 
 
-- Create a folder named `static` under `hands-on-flask-02-handling-routes-on-ec2-linux2` folder and create a text file named `mytext.txt` with *This is a text file in static folder* content.
+- Create a folder named `static` under `hands-on/flask-02-handling-routes-on-ec2-linux2` folder and create a text file named `mytext.txt` with *This is a text file in static folder* content.
 
-- Add and commit `app.py` and `mytext.txt` on local repo
+- Add and commit all changes on local repo
 
-- Push `app.py` and `mytext.txt` to remote repo `clarusway-python-workshop` on GitHub.
+- Push `app.py`, `greet.html`, `list10.html`, `evens.html`, and `mytext.txt` to remote repo `clarusway-python-workshop` on GitHub.
 
 ## Run the Hello World App on EC2 Instance
 
@@ -128,7 +128,7 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Run the web application
 
-- Connect the route handling web application from the web browser and try every routes configured
+- Connect the route handling and templating web application from the web browser and try every routes configured
 
 - Open the static file `mytext.txt` context from the web browser
 
