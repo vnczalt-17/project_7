@@ -6,13 +6,29 @@ This private repository contains projects, hands-on trainings and coding challen
 
 The clarusway-workshop repository contains materials related to the IT trainings like projects, hands-on trainings, coding challenges, etc. in the following main areas.
 
-- [AWS Workshop](./aws/)
+- [AWS Workshop](./aws/README.md)
 
-- [DevOps Workshop](./devops/)
+    - [AWS Workshop Hands-on Trainings](./aws/hands-on/README.md)
 
-- [Linux Workshop](./linux/)
+    - [AWS Workshop Projects](./aws/projects/README.md)
 
-- [Python Workshop](./python/)
+- [DevOps Workshop](./devops/README.md)
+
+    - [DevOps Workshop Hands-on Trainings](./devops/hands-on/README.md)
+
+    - [DevOps Workshop Projects](./devops/projects/README.md)
+
+- [Linux Workshop](./linux/README.md)
+
+    - [Linux Workshop Hands-on Trainings](./linux/hands-on/README.md)
+
+    - [Linux Workshop Projects](./linux/projects/README.md)
+
+- [Python Workshop](./python/README.md)
+
+    - [Python Workshop Hands-on Trainings](./python/hands-on/README.md)
+
+    - [Python Workshop Projects](./python/projects/README.md)
 
 
 ## Rules & Policy
