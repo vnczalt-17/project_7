@@ -1,4 +1,4 @@
-# Hands-on Flask-02 : Handling Routes and Templating with Flask Web Application
+# Hands-on Flask-02 : Handling Routes and Templates with Flask Web Application
 
 Purpose of the this hands-on training is to give the students introductory knowledge of how to handle routes and use html templates within a Flask web application on Amazon Linux 2 EC2 instance. 
 
@@ -66,11 +66,11 @@ The server responds to that request with an HTTP response message. Within the re
 
 ## Part 3 - Write a Web Application with Sample Routings and Templating on GitHub Repo
 
-- Create folder named `flask-02-handling-routes-on-ec2-linux2` within `clarusway-python-workshop` repo
+- Create folder named `flask-02-handling-routes-and-templates-on-ec2-linux2` within `clarusway-python-workshop` repo
 
 - Create python file named `app.py`
 
-- Write an application with routing and templating samples and save the complete code under `hands-on/flask-02-handling-routes-on-ec2-linux2` folder.
+- Write an application with routing and templating samples and save the complete code under `hands-on/flask-02-handling-routes-and-templates-on-ec2-linux2` folder.
 
 ```python
 #Import Flask modules
@@ -116,7 +116,7 @@ The server responds to that request with an HTTP response message. Within the re
 
 - Write a template html file named `evens.html` which shows a list of even numbers from 1 to 10 under `templates` folder 
 
-- Create a folder named `static` under `hands-on/flask-02-handling-routes-on-ec2-linux2` folder and create a text file named `mytext.txt` with *This is a text file in static folder* content.
+- Create a folder named `static` under `hands-on/flask-02-handling-routes-and-templates-on-ec2-linux2` folder and create a text file named `mytext.txt` with *This is a text file in static folder* content.
 
 - Add and commit all changes on local repo
 
