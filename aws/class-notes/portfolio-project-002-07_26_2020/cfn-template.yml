@@ -13,10 +13,6 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
   WebServersSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
@@ -25,7 +21,11 @@ Resources:
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          CidrIp: !GetAtt ALBSecurityGroup.GroupId
+          SourceSecurityGroupId: !GetAtt ALBSecurityGroup.GroupId
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
   WebServerLT:
     Type: "AWS::EC2::LaunchTemplate"
     Properties:
@@ -38,20 +38,20 @@ Resources:
         TagSpecifications: 
           - ResourceType: instance
             Tags:
-              Key: Name
-              Value: !Sub Web Server of ${AWS::StackName} Stack
+              - Key: Name
+                Value: !Sub Web Server of ${AWS::StackName} Stack
         UserData: 
-          Fn::!Base64: |
+          Fn::Base64: |
             #! /bin/bash
             yum update -y
             yum install python3 -y
             pip3 install flask
-            TOKEN='xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-            FOLDER=""
-            curl -s --create-dirs -o "/home/ec2/templates/index.html" -L "FOLDER"templates/index.html
-            curl -s --create-dirs -o "/home/ec2/templates/result.html" -L "FOLDER"templates/result.html
-            curl -s --create-dirs -o "/home/ec2/app.py" -L "FOLDER"app.py
-            python3 /home/ec2/app.py
+            TOKEN='2bf83eda6abe858c76a746ed999d5a52dbcf5466'
+            FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/clarusway-aws-devops-1-20/master/aws/class-notes/portfolio-project-002-07_26_2020/"
+            curl -s --create-dirs -o "/home/ec2-user/templates/index.html" -L "$FOLDER"templates/index.html
+            curl -s --create-dirs -o "/home/ec2-user/templates/result.html" -L "$FOLDER"templates/result.html
+            curl -s --create-dirs -o "/home/ec2-user/app.py" -L "$FOLDER"app.py
+            python3 /home/ec2-user/app.py
   WebServersTG:
     Type: "AWS::ElasticLoadBalancingV2::TargetGroup"
     Properties:
