@@ -8,8 +8,8 @@ Description: >
 Parameters:
   KeyPairName:
     Description: Enter the name of your Key Pair for SSH connections.
-    Type: String
-    Default: call.training
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: Must one of the existing EC2 KeyPair
 
 Resources:
   DockerMachineSecurityGroup:
