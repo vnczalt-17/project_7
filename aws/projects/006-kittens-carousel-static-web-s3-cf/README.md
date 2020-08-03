@@ -77,7 +77,7 @@ Kittens Carousel is a static website application deployed on AWS Simple Storage 
 
 ## Expected Outcome
 
-![Project 101 : Kittens Carousel Application Snapshot](./project-101-snapshot.png)
+![Project 101 : Kittens Carousel Application Snapshot](./project-006-snapshot.png)
 
 ### At the end of the project, following topics are to be covered;
 
