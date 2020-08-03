@@ -9,3 +9,5 @@ List of hands-on trainings within DevOps workshop as follows;
 - [Hands-on Docker-03 : Handling Docker Volumes](./docker-03-handling-volumes/README.md)
 
 - [Hands-on Docker-04 : Docker Networking](./docker-04-networking/README.md)
+
+- [Hands-on Docker-05 : Docker Image Basic Operations](./docker-05-image-basic-operations/README.md)
