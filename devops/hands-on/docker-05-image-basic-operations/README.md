@@ -46,10 +46,6 @@ At the end of the this hands-on training, students will be able to;
 
 - Connect to your instance with SSH.
 
-```bash
-ssh -i .ssh/call-training.pem ec2-user@ec2-3-133-106-98.us-east-2.compute.amazonaws.com
-```
-
 ## Part 2 - Using Docker Image Commands and Docker Hub
 
 - Explain what the Docker Hub is.
@@ -76,7 +72,6 @@ ssh -i .ssh/call-training.pem ec2-user@ec2-3-133-106-98.us-east-2.compute.amazon
 
 - Search for Docker Images both on `bash` and on Docker Hub. Show which version of Python corresponds to when `python:alpine` selected. (`3.8.5`)
   
-
 ## Part 3 - Building Docker Images with Dockerfile
 
 - Build an image of Python Flask app with Dockerfile based on `python:alpine` image and push it to the Docker Hub.
