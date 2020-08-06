@@ -60,7 +60,7 @@ At the end of the this hands-on training, students will be able to;
 
     - Log in to Jenkins with username and password.
 
-  - Open your Jenkins dashboard and click on `**New Item**` to create a new job item.
+  - Open your Jenkins dashboard and click on `New Item` to create a new job item.
 
   - Enter `my first job` then select `free style project` and click `OK`.
 
