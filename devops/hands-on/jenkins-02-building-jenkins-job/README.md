@@ -46,8 +46,6 @@ At the end of the this hands-on training, students will be able to;
 
 - Explain `Manage Jenkins` dashboard.
 
-- Open `Manage Plugins` menu from `Manage Jenkins` dashboard and download some plugins (for example ).
-
 - Explain other Jenkins terminology.
 
 ## Part 3 - Creating First Jenkins Job
