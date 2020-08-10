@@ -1,4 +1,4 @@
-# Coding Challenge - 010 : Validate Customers with Security Questions
+# Coding Challenge - 008 : Validate Customers with Security Questions
 
 The purpose of this coding challenge is to write a program that asks security questions to the customer to check if he is a valid user that exists in the database.
 
