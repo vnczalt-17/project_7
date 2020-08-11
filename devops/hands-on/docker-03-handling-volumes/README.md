@@ -134,7 +134,7 @@ docker volume ls
 ```
 
 
-- Show details and explain the volume `cw-test-vol`. Note the mount point: `/var/lib/docker/volumes/mountpoint-test-vol/_data`.
+- Show details and explain the volume `cw-test-vol`. Note the mount point: `/var/lib/docker/volumes/cw-test-vol/_data`.
 
 ```bash
 docker volume inspect cw-test-volume
@@ -143,7 +143,7 @@ docker volume inspect cw-test-volume
 - List all files/folders under the mount point of the volume `cw-test-vol`, should see nothing listed.
 
 ```bash
-sudo ls -al  /var/lib/docker/volumes/mountpoint-test-volume/_data
+sudo ls -al  /var/lib/docker/volumes/cw-test-volume/_data
 ```
 
 - Run a `alpine` container with interactive shell open, name the container as `clarus`, attach the volume `cw-test-volume` to `/mountpoint` mount point in the container, and add command to run alpine shell. Here, explain `--volume` and `v` flags.
@@ -197,7 +197,7 @@ docker ps -a
 - List all files/folders under the volume `cw-test-vol`, show that the file `i-will-persist.txt` is there.
 
 ```bash
-sudo ls -al  /var/lib/docker/volumes/mountpoint-test-volume/_data && sudo cat /var/lib/docker/volumes/mountpoint-test-volume/_data/i-will-persist.txt
+sudo ls -al  /var/lib/docker/volumes/cw-test-volume/_data && sudo cat /var/lib/docker/volumes/cw-test-volume/_data/i-will-persist.txt
 ```
 
 ## Part 4 - Using Same Volume with Different Containers
@@ -205,7 +205,8 @@ sudo ls -al  /var/lib/docker/volumes/mountpoint-test-volume/_data && sudo cat /v
 - Run a `alpine` container with interactive shell open, name the container as `second-volume-container`, attach the volume `cw-test-vol` to `/secondmountpoint` mount point in the container, and add command to run alpine shell.
 
 ```bash
-docker run -it --name second-volume-container -v cw-test-volume:/secondmountpoint alpine ash
+docker run -it --name second-volume-container -v cw-test-volume:/second
+point alpine ash
 ```
 
 - List the files in `/secondmountpoint` folder, and show that we can reach the file `i-will-persist.txt`.

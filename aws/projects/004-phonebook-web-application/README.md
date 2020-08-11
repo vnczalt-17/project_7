@@ -115,9 +115,9 @@ thousand                         Warning -> 'Invalid input: Phone number should 
 ```text
 004-phonebook-web-application (folder)
 |
-|----readme.md         # Given to the students (Definition of the project)
-|----cf-template.yml   # To be delivered by students (Cloudformation template)
-|----app.py            # To be delivered by students (Python Flask Web Application)
+|----readme.md          # Given to the students (Definition of the project)
+|----cfn-template.yml   # To be delivered by students (Cloudformation template)
+|----app.py             # To be delivered by students (Python Flask Web Application)
 |----templates
         |----index.html      # Given to the students (HTML template)
         |----add-update.html # Given to the students (HTML template)

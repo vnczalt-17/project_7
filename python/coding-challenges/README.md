@@ -7,3 +7,5 @@ List of coding challenges within Python workshop as follows;
 - [CC - 006 : Calculate The Amount of Water to be Trapped](./cc-006-calculate-amount-of-water-trapped/README.md)
 
 - [CC - 007 : Calculate Stock Profit](./cc-007-calculate-stock-profit/README.md)
+
+- [CC - 008 : Validate Customers with Security Questions](./cc-008-validate-customers-with-security-questions/README.md)
