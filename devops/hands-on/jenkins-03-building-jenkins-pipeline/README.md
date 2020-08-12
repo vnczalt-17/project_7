@@ -347,7 +347,7 @@ pipeline {
 
 - Clone the `jenkins-maven-project` repository on local computer.
 
-- Copy the files given within the hands-on folder `hello-app` and paste under the `jenkins-maven-project` GitHub repo folder.
+- Copy the files given within the hands-on folder [hello-app](./hello-app) and paste under the `jenkins-maven-project` GitHub repo folder.
 
 - Since the Jenkins Server is running on Docker Machine, we can leverage from docker image of maven to setup the java and maven environment.
 
