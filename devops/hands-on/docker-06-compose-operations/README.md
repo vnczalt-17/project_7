@@ -34,15 +34,38 @@ At the end of the this hands-on training, students will be able to;
 
 - Download the current stable release of `Docker Compose` executable.
 
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" \
+-o /usr/local/bin/docker-compose
+```
+
 - Apply executable permissions to the binary:
 
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 - Check if the `Docker Compose`is working.
+
+```bash
+docker-compose --version
+```
 
 ## Part 3 - Building a Web Application using Docker Compose
 
 - Create a folder for the project:
 
+```bash
+cd ~
+mkdir composetest
+cd composetest
+```
+
 - Create a file called `app.py` in your project folder and paste the following python code in it. In this example, the application uses the Flask framework and maintains a hit counter in Redis, and  `redis` is the hostname of the `Redis container` on the application’s network. We use the default port for Redis, `6379`.
+
+```bash 
+touch app.py
+```
 
 ```python
 import time
@@ -74,16 +97,80 @@ def hello():
 
 - Create another file called `requirements.txt` in your project folder, add `flask` and `redis` as package list.
 
+```bash
+touch requirements.txt
+
+echo '
+flask
+redis
+' > requirements.txt
+
+# To check the file contents
+
+cat requirements.txt
+
+```
+
+
 - Create a Dockerfile which builds a Docker image and explain what it does.
+
+```bash
+touch Dockerfile
+
+echo '
+FROM python:3.7-alpine
+WORKDIR /code
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
+CMD ["flask", "run"]
+' > Dockerfile
+```
 
 - Create a file called `docker-compose.yml` in your project folder and define services and explain services.
 
+```bash
+touch docker-compose.yml
+
+echo '
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
+' > docker-compose.yml
+
+```
+
 - Build and run your app with `Docker Compose` and explains what is happening.
 
+```bash
+docker-compose up
+```
+
 - Add a rule within the security group of Docker Instance allowing TCP connections through port `5000` from anywhere in the AWS Management Console.
+
+```bash 
+Type        : Custom TCP
+Protocol    : TCP
+Port Range  : 5000
+Source      : 0.0.0.0/0
+Description : -
+```
 
 - Enter http://`ec2-host-name`:5000/ in a browser to see the application running.
 
 - Press `Ctrl+C` to stop containers, and run `docker ps -a` to see containers created by Docker Compose.
 
 - Remove the containers with `Docker Compose`.
+
+```bash
+docker-compose down
+```
