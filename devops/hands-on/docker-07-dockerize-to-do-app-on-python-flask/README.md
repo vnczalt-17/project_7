@@ -261,7 +261,7 @@ flask-mysql
 
 - Create a file called `docker-compose.yml` in your project folder and configure.
 
-- Change the configuration of the database code part in `to-do-api.py` (line 9-13) with statements given below and explain why hostname of new MySQL container will be `database`.
+- Change the configuration of the database code part in `to-do-api.py` (line 9-13) with statements given below.
 
 ```bash
 app.config['MYSQL_DATABASE_HOST'] = 'database'
