@@ -9,5 +9,29 @@ Session - 1
 
 Session starts at 12pm EST
 
+Project Setup
 
+- Parameters
+
+  - Domain Name ex. clarusway.us
+
+  - Website Domain Name ex. kittens.clarusway.us
+
+- S3
+
+  - Bucket
+
+  - Bucket Policy
+
+- Cloudfront
+
+  - Cloudfront Distribution
+
+- Route 53
+
+  - RecordSet for website
+
+- Certificate Manager
+
+  - Certificate
 
