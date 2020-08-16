@@ -226,8 +226,7 @@ if __name__== '__main__':
 - Create another file called `requirements.txt` in your project folder, add the followings as package list.
 
 ```bash
-flask==1.0.2
-flask-ext
+flask
 flask-mysql
 ```
 
