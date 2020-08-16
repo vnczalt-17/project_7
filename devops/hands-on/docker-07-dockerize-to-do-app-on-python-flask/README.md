@@ -24,11 +24,28 @@ At the end of the this hands-on training, students will be able to;
 
 - Connect to your instance with SSH.
 
+```bash
+
+ssh -i <location of pem key> ec2-user@<ec2 instance public ip or hostname>
+
+```
+
 ## Part 2 - Building a Python Flask App Image using Dockerfile with RDS DB Instance
 
 - Create a folder for the project and change into your project directory.
+
+```bash
+cd ~
+mkdir ~/to-do-api
+cd ~/to-do-api
+```
   
 - Create a `to-do-api.py` with following coding. Special RDS DB instance within following code is already up and running for this project.
+
+```bash
+cd ~/to-do-api
+touch ~/to-do-api/to-do-api.py
+```
 
 ```bash
 # Import Flask modules
@@ -226,17 +243,64 @@ if __name__== '__main__':
 - Create another file called `requirements.txt` in your project folder, add the followings as package list.
 
 ```bash
+cd ~/to-do-api
+touch requirements.txt
+
+#Add the following requirements to this file:
 flask
 flask-mysql
 ```
 
 - Create a Dockerfile to build To-Do App.
 
+```bash 
+#First let's make sure that docker is running. 
+systemctl status docker
+
+#If it is stopped:
+
+systemctl start docker
+
+#To create our Dockerfile
+
+cd ~/to-do-api
+touch Dockerfile
+
+#Then add the following content:
+
+FROM python:alpine
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+EXPOSE 80
+CMD python ./to-do-api.py
+```
+
 - Build your Dockerfile with your `dockerhub-username`.
+
+```bash
+docker build -t <dockerhub-username>/todolist:1.0 .
+```
+
+- Check to see the status of the image created
+
+```bash
+docker image ls 
+```
 
 - Run your docker image.
 
+```bash
+docker run --name todo -d -p 80:80 <dockerhub-username>/todolist:1.0
+```
+
 - List running container.
+
+```bash
+docker container ls 
+#Or 
+docker ps 
+```
 
 - Check if the To-Do App is running by entering `http://<ec2-host-name>` in a browser.
 
@@ -244,21 +308,118 @@ flask-mysql
 
   - List all task in  the `To Do List` API using `/todos` path and HTTP `GET` method with `curl` command.
 
+```bash
+curl http://<ec2-host-name>/todos
+
+#Or
+
+curl localhost/todos
+```
+
   - Retrieve task with `id=3` using `/todos/3` path and HTTP `GET` method with `curl` command.
+
+  ```bash 
+  curl http://<your instance public ip>/todos/3
   
+  #Or
+  
+ curl ec2-54-174-173-65.compute-1.amazonaws.com/todos/3
+
+ #IF you broke it
+ docker container ls 
+
+ #Get the container ID from this then:
+ docker container restart <first 3 of container id>
+ ```
+ 
   - Create new task the `To Do List` using `/todos` path and HTTP `POST` method with `curl` command.
 
+```bash 
+curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://<your instance public ip>/todos
+
+#Check that it was added:
+curl http://<your instance public ip>/todos
+```
+
   - Delete task with `id=1` using `/todos/1` path and HTTP `DELETE` method with `curl` command.
+
+```bash
+curl -H "Content-Type: application/json" -X DELETE http://<your instance public ip>/todos/1
+```
   
   - List all task in  the `To Do List` API using `/todos` path and HTTP `GET` method with `curl` command.
 
+```bash
+curl http://<your instance public ip>/todos
+```
+
 - Stop and remove container
 
+```bash 
+# Check running containers with:
+docker ps 
+
+docker stop todo/<first three of container id>
+
+#To check stopped containers as well 
+docker ps -a
+
+#Then
+docker rm todo
+```
+
 - Push your images to docker hub.
+
+```bash 
+#To see the images you have locally:
+docker image ls 
+
+#Make sure you log in first:
+docker login
+
+docker push <dockerhub-username>/todolist:1.0
+```
 
 ## Part 3 - Configuring Multi Containers (Python Flask App and MySQL) with Docker Compose
 
 - Create a file called `docker-compose.yml` in your project folder and configure.
+
+```bash 
+cd ~/to-do-api
+
+#If you named it wrong you can always use the mv command
+mv <original file> <what you want it to be called>
+
+touch docker-compose.yml
+
+#The content of out compose file is as follows:
+
+version: "3.7"
+
+services:
+    database:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: R1234r
+            MYSQL_DATABASE: todo_db
+            MYSQL_USER: clarusway
+            MYSQL_PASSWORD: Clarusway_1
+        networks:
+            - clarusnet
+    myapp:
+        build: .
+        restart: always
+        depends_on:
+            - database
+        ports:
+            - "80:80"
+        networks:
+            - clarusnet
+
+networks:
+    clarusnet:
+        driver: bridge
+```
 
 - Change the configuration of the database code part in `to-do-api.py` (line 9-13) with statements given below.
 
@@ -272,24 +433,70 @@ app.config['MYSQL_DATABASE_PORT'] = 3306
 
 - Compose up your application.
 
+```bash
+docker-compose up -d
+```
+
 - List docker containers and show that there are multiple containers.
+
+```bash
+docker container ls 
+```
 
 - List docker images and explain `to-do-api_myapp` as image name.
 
+```bash 
+docker image ls 
+```
+
 - List docker networks and explain `to-do-api_clarusnet`.
+
+```bash
+docker network ls 
+```
 
 - Test the application.
 
   - List all task in  the `To Do List` API using `/todos` path and HTTP `GET` method with `curl` command.
 
+  ```bash
+  curl http://<ec2-host-name>/todos
+  ```
+
   - Retrieve task with `id=3` using `/todos/3` path and HTTP `GET` method with `curl` command.
+
+  ```bash
+  curl http://<ec2-host-name>/todos/3
+  ```
   
   - Create new task the `To Do List` using `/todos` path and HTTP `POST` method with `curl` command.
 
+```bash
+curl -H "Content-Type: application/json" -X POST -d '{"title":"Get some REST", "description":"REST in Peace"}' http://<ec2-host-name>/todos
+```
+
   - Delete task with `id=1` using `/todos/1` path and HTTP `DELETE` method with `curl` command.
+
+  ```bash
+  curl -H "Content-Type: application/json" -X DELETE http://<ec2-host-name>/todos/1
+  ```
   
   - List all task in  the `To Do List` API using `/todos` path and HTTP `GET` method with `curl` command.
 
+  ```bash
+  curl http://<ec2-host-name>/todos
+  ```
+
 - Stop and remove containers, networks, images.
 
+```bash
+docker-compose down 
+```
+
 - List docker images, networks, containers.
+
+```bash
+docker image ls
+docker container ls
+docker network ls
+```
