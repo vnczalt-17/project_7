@@ -47,14 +47,6 @@ Resources:
       UserData:
         Fn::Base64: |
           #! /bin/bash
-          yum update -y
-          amazon-linux-extras install docker -y
-          systemctl start docker
-          systemctl enable docker
-          usermod -a -G docker ec2-user
-          docker network create jenkins
-          docker volume create jenkins-docker-certs
-          docker volume create jenkins-data
           docker container run --name jenkins-docker --rm --detach \
           --privileged --network jenkins --network-alias docker \
           --env DOCKER_TLS_CERTDIR=/certs \
