@@ -1,4 +1,4 @@
-# Project-201: Dockerization of Bookstore Web API (Python Flask) with MySQL
+# Project-202: Dockerization of Bookstore Web API (Python Flask) with MySQL
 
 ## Description
 
@@ -61,7 +61,7 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 ## Project Skeleton
 
 ```text
-201-dockerization-bookstore-api-on-python-flask-mysql (folder)
+202-dockerization-bookstore-api-on-python-flask-mysql (folder)
 |
 |----readme.md          # Given to the students (Definition of the project)
 |----bookstore-api.py   # Given to the students (Python Flask Web API)
