@@ -6,7 +6,11 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
 ## Problem Statement
 
+<<<<<<< HEAD
 ![Project_202](202-bookstore-api.png)
+=======
+![Project_202](Project-202.png)
+>>>>>>> f3a2e8882c1119efc1b3c63929f5f90519ae67d6
 
 - Your team has started working on a project to create a `Bookstore` Application as Web Service.  
 
