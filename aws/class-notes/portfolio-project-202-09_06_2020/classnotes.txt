@@ -1,0 +1,11 @@
+Portfolio Building Session
+09/06/2020
+
+Project-202: Dockerization of Bookstore Web API (Python Flask) with MySQL
+
+Instructor: Callahan
+
+Session - 2 
+
+Session starts at 11am EST
+
